@@ -71,7 +71,10 @@ public class CreateFolderAndFileGUI {
                         return;
                     }
                 } else {
+                    // Show JavaFX dialog if folder already exists
+                    JOptionPane.showMessageDialog(frame, "Folder already exists: " + folder.getAbsolutePath(), "Folder Exists", JOptionPane.WARNING_MESSAGE);
                     statusLabel.setText("Status: Folder already exists: " + folder.getAbsolutePath());
+                    return;
                 }
 
                 // Create the file inside the folder
