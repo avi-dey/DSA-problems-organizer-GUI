@@ -87,6 +87,9 @@ public class CreateFolderAndFileGUI {
                 } catch (IOException ex) {
                     statusLabel.setText("Status: An error occurred while creating the file: " + ex.getMessage());
                 }
+
+                // Close the frame after clicking the button
+                frame.dispose();
             }
         });
 
