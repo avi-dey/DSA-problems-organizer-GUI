@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,7 +20,7 @@ public class CreateFolderAndFileGUI {
         parentFolderLabel.setBounds(20, 20, 150, 25);
         frame.add(parentFolderLabel);
 
-        String[] parentFolders = {"Leecode", "GeeksForGeeks", "Codeforces", "CodingNinja", "HackerRank"};
+        String[] parentFolders = {"Leecode", "GeeksForGeeks", "Codeforces", "CodingNinja"};
         JComboBox<String> parentFolderComboBox = new JComboBox<>(parentFolders);
         parentFolderComboBox.setBounds(150, 20, 200, 25);
         frame.add(parentFolderComboBox);
@@ -42,8 +44,8 @@ public class CreateFolderAndFileGUI {
         statusLabel.setBounds(20, 160, 350, 25);
         frame.add(statusLabel);
 
-        // Add action listener to the button
-        createButton.addActionListener(new ActionListener() {
+        // Action listener to "create folder and file" button
+        ActionListener createActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String parentFolderName = (String) parentFolderComboBox.getSelectedItem();
@@ -90,6 +92,19 @@ public class CreateFolderAndFileGUI {
 
                 // Close the frame after clicking the button
                 frame.dispose();
+            }
+        };
+
+        // Add action listener to the button
+        createButton.addActionListener(createActionListener);
+
+        // Add key listener to the folderField to handle Enter key
+        folderField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    createActionListener.actionPerformed(null);
+                }
             }
         });
 
