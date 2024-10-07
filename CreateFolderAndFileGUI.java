@@ -15,6 +15,9 @@ public class CreateFolderAndFileGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
 
+        // Center the frame on the screen
+        frame.setLocationRelativeTo(null);
+
         // Create label and combo box for parent folder selection
         JLabel parentFolderLabel = new JLabel("Select parent folder:");
         parentFolderLabel.setBounds(20, 20, 150, 25);
