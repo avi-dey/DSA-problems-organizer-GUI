@@ -20,7 +20,7 @@ public class CreateFolderAndFileGUI {
         parentFolderLabel.setBounds(20, 20, 150, 25);
         frame.add(parentFolderLabel);
 
-        String[] parentFolders = {"Leecode", "GeeksForGeeks", "Codeforces", "CodingNinja"};
+        String[] parentFolders = {"Leetcode", "GeeksForGeeks", "Codeforces", "CodingNinja"};
         JComboBox<String> parentFolderComboBox = new JComboBox<>(parentFolders);
         parentFolderComboBox.setBounds(150, 20, 200, 25);
         frame.add(parentFolderComboBox);
